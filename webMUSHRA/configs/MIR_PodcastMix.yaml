@@ -1,0 +1,146 @@
+testname: webMUSHRA Example
+testId: default_example
+bufferSize: 2048
+stopOnErrors: true
+showButtonPreviousPage: true
+remoteService: service/write.php
+
+
+pages:
+    - type: generic
+      id: first_page
+      name: Welcome
+      content: Here is a selection of Podcasts, decomposed into speech and music. Please take 5 minutes to rate the quality of these audio samples. Thank you!
+    - type: mushra
+      id: final_report
+      name: MUSHRA
+      content: Reminder: In a MUSHRA listening test you are asked to rate the Basic Audio Quality (BAQ) of each condition.<br/>Basic Audio Quality is a single and global attribute that is used to judge any and all detected differences between the Reference and the condition.
+      showWaveform: true
+      enableLooping: true
+      reference: configs/podcastmix/audio/1_Reference.wav
+      createAnchor35: false
+      createAnchor70: false
+      showConditionNames: true
+      stimuli:
+          ConvTasNet_Music: configs/podcastmix/audio/1_ConvTasNet_Music.wav
+          ConvTasNet_Speech: configs/podcastmix/audio/1_ConvTasNet_Speech.wav
+          UNet_Music: configs/podcastmix/audio/1_UNet_Music.wav
+          UNet_Speech: configs/podcastmix/audio/1_UNet_Speech.wav
+
+    -
+          - random
+          - type: mushra
+            id: trial_random_1
+            name: MUSHRA - Random 2
+            content: Due to randomization, this page will be any MUSHRA page.
+            enableLooping: true
+            reference: configs/podcastmix/audio/2_Reference.wav
+            createAnchor35: false
+            createAnchor70: false
+            showConditionNames: true
+            stimuli:
+                ConvTasNet_Music: configs/podcastmix/audio/2_ConvTasNet_Music.wav
+                ConvTasNet_Speech: configs/podcastmix/audio/2_ConvTasNet_Speech.wav
+                UNet_Music: configs/podcastmix/audio/2_UNet_Music.wav
+                UNet_Speech: configs/podcastmix/audio/2_UNet_Speech.wav
+
+          - type: mushra
+            id: trial_random_2
+            name: MUSHRA - Random 3
+            content: Due to randomization, this page will be any MUSHRA page.
+            enableLooping: true
+            reference: configs/podcastmix/audio/3_Reference.wav
+            createAnchor35: false
+            createAnchor70: false
+            showConditionNames: true
+            stimuli:
+                ConvTasNet_Music: configs/podcastmix/audio/3_ConvTasNet_Music.wav
+                ConvTasNet_Speech: configs/podcastmix/audio/3_ConvTasNet_Speech.wav
+                UNet_Music: configs/podcastmix/audio/3_UNet_Music.wav
+                UNet_Speech: configs/podcastmix/audio/3_UNet_Speech.wav
+
+          - type: mushra
+            id: trial_random_3
+            name: MUSHRA - Random 4
+            content: Due to randomization, this page will be any MUSHRA page.
+            enableLooping: true
+            reference: configs/podcastmix/audio/4_Reference.wav
+            createAnchor35: false
+            createAnchor70: false
+            showConditionNames: true
+            stimuli:
+                ConvTasNet_Music: configs/podcastmix/audio/4_ConvTasNet_Music.wav
+                ConvTasNet_Speech: configs/podcastmix/audio/4_ConvTasNet_Speech.wav
+                UNet_Music: configs/podcastmix/audio/4_UNet_Music.wav
+                UNet_Speech: configs/podcastmix/audio/4_UNet_Speech.wav
+
+          - type: mushra
+            id: trial_random_4
+            name: MUSHRA - Random 5
+            content: Due to randomization, this page will be any MUSHRA page.
+            enableLooping: true
+            reference: configs/podcastmix/audio/5_Reference.wav
+            createAnchor35: false
+            createAnchor70: false
+            showConditionNames: true
+            stimuli:
+                ConvTasNet_Music: configs/podcastmix/audio/5_ConvTasNet_Music.wav
+                ConvTasNet_Speech: configs/podcastmix/audio/5_ConvTasNet_Speech.wav
+                UNet_Music: configs/podcastmix/audio/5_UNet_Music.wav
+                UNet_Speech: configs/podcastmix/audio/5_UNet_Speech.wav
+
+          - type: mushra
+            id: trial_random_5
+            name: MUSHRA - Random 6
+            content: Due to randomization, this page will be any MUSHRA page.
+            enableLooping: true
+            reference: configs/podcastmix/audio/6_Reference.wav
+            createAnchor35: false
+            createAnchor70: false
+            showConditionNames: true
+            stimuli:
+                ConvTasNet_Music: configs/podcastmix/audio/6_ConvTasNet_Music.wav
+                ConvTasNet_Speech: configs/podcastmix/audio/6_ConvTasNet_Speech.wav
+                UNet_Music: configs/podcastmix/audio/6_UNet_Music.wav
+                UNet_Speech: configs/podcastmix/audio/6_UNet_Speech.wav
+
+          - type: mushra
+            id: trial_random_6
+            name: MUSHRA - Random 7
+            content: Due to randomization, this page will be any MUSHRA page.
+            enableLooping: true
+            reference: configs/podcastmix/audio/1_Reference.wav
+            createAnchor35: false
+            createAnchor70: false
+            showConditionNames: true
+            stimuli:
+                ConvTasNet_Music: configs/podcastmix/audio/6_ConvTasNet_Music.wav
+                ConvTasNet_Speech: configs/podcastmix/audio/6_ConvTasNet_Speech.wav
+                UNet_Music: configs/podcastmix/audio/6_UNet_Music.wav
+                UNet_Speech: configs/podcastmix/audio/6_UNet_Speech.wav
+
+    - type: finish
+      name: Thank you
+      content: Thank you for attending!
+      showResults: true
+      writeResults: true
+      questionnaire:
+          - type: text
+            label: eMail
+            name: email
+          - type: number
+            label: Age
+            name: age
+            min: 0
+            max: 100
+            default: 30
+          - type: likert
+            name: gender
+            label: Gender
+            response:
+             - value: female
+               label: Female
+             - value: male
+               label: Male
+             - value: other
+               label: Other
